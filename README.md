@@ -1,6 +1,9 @@
 # Science Simplifier Tool
 
-A web-based application that transforms complex scientific papers into accessible, easy-to-understand summaries using AI.
+[![Website](https://img.shields.io/badge/live-sst.mbiri.net-blue)](https://sst.mbiri.net)
+[![Related Project](https://img.shields.io/badge/output-test.mbiri.net-green)](https://github.com/guthdx/test.mbiri.net)
+
+A web-based application that transforms complex scientific papers into accessible, easy-to-understand summaries using AI. Outputs are deployed to the [MBIRI Research Dissemination Hub](https://test.mbiri.net).
 
 ## Features
 
@@ -114,6 +117,50 @@ All content is formatted with clear headings, proper styling, and includes a lin
 
 This project is for personal use.
 
+## Workflow Integration
+
+This tool is part of a two-repository workflow for disseminating research findings:
+
+```
+┌─────────────────────────────────────┐
+│  Science Simplifier Tool (this repo)│
+│  https://sst.mbiri.net              │
+│                                     │
+│  1. Upload PDF research paper       │
+│  2. AI generates simplified content │
+│  3. Download HTML/PDF output        │
+└──────────────┬──────────────────────┘
+               │
+               │ Manual deployment (SCP)
+               ↓
+┌──────────────────────────────────────┐
+│  MBIRI Research Dissemination Hub    │
+│  https://test.mbiri.net              │
+│  github.com/guthdx/test.mbiri.net    │
+│                                      │
+│  - Hosts simplified HTML summaries   │
+│  - Hosts original research papers    │
+│  - Interactive health tools          │
+│  - Public-facing research portal     │
+└──────────────────────────────────────┘
+```
+
+### Deployment Workflow
+
+1. **Generate**: Upload paper to [sst.mbiri.net](https://sst.mbiri.net)
+2. **Simplify**: AI creates community-friendly content
+3. **Deploy**: Use provided SCP commands to deploy to test.mbiri.net
+4. **Publish**: Content is live at [test.mbiri.net](https://test.mbiri.net)
+
+Original papers are automatically deployed to:
+- Remote: `https://test.mbiri.net/original_papers/sst_uploads/`
+- Local backup: `/var/www/test.mbiri.net/html/original_papers/sst_uploads/`
+
+## Related Projects
+
+- [test.mbiri.net](https://github.com/guthdx/test.mbiri.net) - Research dissemination hub where simplified summaries are published
+
 ## Access
 
-Live at: https://sst.mbiri.net
+- **Live Application**: https://sst.mbiri.net
+- **Output Destination**: https://test.mbiri.net
