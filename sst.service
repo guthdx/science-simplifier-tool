@@ -1,0 +1,18 @@
+[Unit]
+Description=Science Simplifier Tool Flask Application
+After=network.target
+
+[Service]
+Type=notify
+User=guthdx
+Group=guthdx
+WorkingDirectory=/home/guthdx/science-simplifier-tool
+Environment="PATH=/home/guthdx/science-simplifier-tool/venv/bin"
+EnvironmentFile=/home/guthdx/science-simplifier-tool/.env
+ExecStart=/home/guthdx/science-simplifier-tool/venv/bin/gunicorn --workers 3 --timeout 300 --bind 127.0.0.1:5000 app:app
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
